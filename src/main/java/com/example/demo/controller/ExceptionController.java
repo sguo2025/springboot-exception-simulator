@@ -42,10 +42,16 @@ public class ExceptionController {
     public String random() throws InterruptedException {
         int r = new Random().nextInt(5);
         switch (r) {
-            case 0 -> throw new RuntimeException("随机异常：RuntimeException");
-            case 1 -> { Thread.sleep(3000); return "随机延迟3秒返回"; }
-            case 2 -> { String s = null; return s.toString(); }
-            default -> { return "正常返回"; }
+            case 0:
+                throw new RuntimeException("随机异常：RuntimeException");
+            case 1:
+                Thread.sleep(3000);
+                return "随机延迟3秒返回";
+            case 2:
+                String s = null;
+                return s.toString();
+            default:
+                return "正常返回";
         }
     }
 
